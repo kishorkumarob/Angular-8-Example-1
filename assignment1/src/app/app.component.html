@@ -1,0 +1,26 @@
+<label for="Fname">First Name: </label>
+<input type="text" placeholder="First Name" [(ngModel)]="name">
+<p>{{ name }}</p>
+
+<button (click)="resetName()" [disabled]="checkName()">Reset Name</button>
+
+<h2 [ngStyle]="{color: getColor()}">This is an example of ngIf</h2>
+
+<h4 [ngClass]="{white: flag}">This is just an example of ngClass</h4>
+
+<p *ngIf="flag; else elseblock">Flag is true</p>
+<ng-template #elseblock>
+  <p id="false">Flag is false</p>
+</ng-template>
+
+<button (click)="toggleFlag()">Toggle Flag</button>
+
+<h2>This is an example of ngFor</h2>
+
+<input type="text" placeholder="Student Name" [(ngModel)]="currentName">
+<button (click)="add()">Add Student</button>
+<li *ngFor="let names of studentList">{{names}}</li>
+<br>
+<button (click)="toggleParagraph()">Toggle Paragraph</button>
+<p *ngIf="paragraphState">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+<p *ngFor="let clicks of buttonClicks" [ngStyle]="{color:getLength()}">{{clicks}}</p>
